@@ -6,6 +6,7 @@ use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminAdvertisementController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -22,3 +23,5 @@ Route::post('/admin/reset-password-submit', [AdminLoginController::class, 'reset
 Route::get('/admin/edit-profile', [AdminProfileController::class, 'index'])->name('admin_profile')->middleware('admin:admin');
 Route::post('/admin/edit-profile-submit', [AdminProfileController::class, 'profile_submit'])->name('admin_profile_submit');
 
+Route::get('/admin/home-advertisement', [AdminAdvertisementController::class, 'home_ad_show'])->name('admin_home_ad_show')->middleware('admin:admin');
+Route::post('/admin/home-advertisement-update', [AdminAdvertisementController::class, 'home_ad_update'])->name('admin_home_ad_update');
