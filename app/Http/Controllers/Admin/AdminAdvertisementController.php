@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\TopAdvertisement;
 use Illuminate\Http\Request;
 use App\Models\HomeAdvertisement;
 use Image;
@@ -56,6 +57,40 @@ class AdminAdvertisementController extends Controller
         $home_ad_data->above_footer_ad_status = $request->above_footer_ad_status;
         $home_ad_data->update();
 
-        return redirect()->back()->with('success', 'Advertisement Updated Successfully');
+        return redirect()->back()->with('success', 'Home Advertisement Updated Successfully');
     }
+
+    public function top_ad_show()
+    {
+        $top_ad_data = TopAdvertisement::where('id', 1)->first();
+        return view('admin.advertisement_top_view', compact('top_ad_data'));
+    }
+
+    public function top_ad_update(Request $request)
+    {
+        $top_ad_data = TopAdvertisement::where('id', 1)->first();
+
+        if ($request->hasFile('top_ad')) {
+            $request->validate([
+                'top_ad' => 'image|mimes:jpg,jpeg,png,gif'
+            ]);
+
+            unlink(public_path('uploads/' . $top_ad_data->top_ad));
+
+            $ext = $request->file('top_ad')->extension();
+            $image = Image::make($request->file('top_ad'));
+            $image->resize(1170, 100);
+            $final_name = 'top_ad' . '.' . $ext;
+            $image->save(public_path('uploads/' . $final_name));
+
+            $top_ad_data->top_ad = $final_name;
+
+        }
+        $top_ad_data->top_ad_url = $request->top_ad_url;
+        $top_ad_data->top_ad_status = $request->top_ad_status;
+        $top_ad_data->update();
+
+        return redirect()->back()->with('success', 'Top Advertisement Updated Successfully');
+    }
+
 }
