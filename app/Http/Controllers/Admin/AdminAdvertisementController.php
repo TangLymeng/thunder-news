@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\SidebarAdvertisement;
 use App\Models\TopAdvertisement;
 use Illuminate\Http\Request;
 use App\Models\HomeAdvertisement;
@@ -15,6 +16,7 @@ class AdminAdvertisementController extends Controller
         $home_ad_data = HomeAdvertisement::where('id', 1)->first();
         return view('admin.advertisement_home_view', compact('home_ad_data'));
     }
+
     public function home_ad_update(Request $request)
     {
         $home_ad_data = HomeAdvertisement::where('id', 1)->first();
@@ -93,4 +95,80 @@ class AdminAdvertisementController extends Controller
         return redirect()->back()->with('success', 'Top Advertisement Updated Successfully');
     }
 
+    public function sidebar_ad_show()
+    {
+        $sidebar_ad_data = SidebarAdvertisement::get();
+        return view('admin.advertisement_sidebar_view', compact('sidebar_ad_data'));
+    }
+
+    public function sidebar_ad_create()
+    {
+        return view('admin.advertisement_sidebar_create');
+    }
+
+    public function sidebar_ad_store(Request $request)
+    {
+
+        $request->validate([
+            'sidebar_ad' => 'required|image|mimes:jpg,jpeg,png,gif'
+        ], [
+            'sidebar_ad.required' => 'Please choose your ads image',
+            'sidebar_ad.image' => 'Only image file are allowed',
+            'sidebar_ad.mimes' => 'Only jpg,jpeg,png,gif file are allowed',
+        ]);
+
+        $ext = $request->file('sidebar_ad')->extension();
+        $image = Image::make($request->file('sidebar_ad'));
+        $image->resize(500, 266);
+        $final_name = 'sidebar_ad_' . uniqid() . '.' . $ext;
+        $image->save(public_path('uploads/' . $final_name));
+
+        $sidebar_ad_data = new SidebarAdvertisement();
+        $sidebar_ad_data->sidebar_ad = $final_name;
+        $sidebar_ad_data->sidebar_ad_url = $request->sidebar_ad_url;
+        $sidebar_ad_data->sidebar_ad_location = $request->sidebar_ad_location;
+        $sidebar_ad_data->save();
+
+        return redirect()->route('admin_sidebar_ad_show')->with('success', 'Sidebar Advertisement Inserted Successfully');
+    }
+
+    public function sidebar_ad_edit($id)
+    {
+        $sidebar_ad_data = SidebarAdvertisement::where('id', $id)->first();
+        return view('admin.advertisement_sidebar_edit', compact('sidebar_ad_data'));
+    }
+
+    public function sidebar_ad_update(Request $request, $id)
+    {
+        $sidebar_ad_data = SidebarAdvertisement::where('id', $id)->first();
+
+        if ($request->hasFile('sidebar_ad')) {
+            $request->validate([
+                'sidebar_ad' => 'image|mimes:jpg,jpeg,png,gif'
+            ]);
+
+            unlink(public_path('uploads/' . $sidebar_ad_data->sidebar_ad));
+
+            $ext = $request->file('sidebar_ad')->extension();
+            $image = Image::make($request->file('sidebar_ad'));
+            $image->resize(500, 266);
+            $final_name = 'sidebar_ad_' . uniqid() . '.' . $ext;
+            $image->save(public_path('uploads/' . $final_name));
+
+            $sidebar_ad_data->sidebar_ad = $final_name;
+        }
+
+        $sidebar_ad_data->sidebar_ad_url = $request->sidebar_ad_url;
+        $sidebar_ad_data->sidebar_ad_location = $request->sidebar_ad_location;
+        $sidebar_ad_data->update();
+
+        return redirect()->route('admin_sidebar_ad_show')->with('success', 'Sidebar Advertisement Updated Successfully');
+    }
+    public function sidebar_ad_delete($id)
+    {
+        $sidebar_ad_data = SidebarAdvertisement::where('id', $id)->first();
+        unlink(public_path('uploads/' . $sidebar_ad_data->sidebar_ad));
+        $sidebar_ad_data->delete();
+        return redirect()->route('admin_sidebar_ad_show')->with('success', 'Sidebar Advertisement Deleted Successfully');
+    }
 }

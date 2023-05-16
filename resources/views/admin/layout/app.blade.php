@@ -28,7 +28,7 @@
                 <div class="section-header">
                     <h1>@yield('heading')</h1>
                     <div class="ml-auto">
-                        {{-- <a href="" class="btn btn-primary"><i class="fas fa-plus"></i> Button</a> --}}
+                        @yield('button')
                     </div>
                 </div>
 
