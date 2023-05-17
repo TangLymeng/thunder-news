@@ -7,6 +7,7 @@ use App\Models\SidebarAdvertisement;
 use App\Models\TopAdvertisement;
 use Illuminate\Http\Request;
 use App\Models\HomeAdvertisement;
+use App\Models\Category;
 use Image;
 
 class AdminAdvertisementController extends Controller
@@ -170,5 +171,21 @@ class AdminAdvertisementController extends Controller
         unlink(public_path('uploads/' . $sidebar_ad_data->sidebar_ad));
         $sidebar_ad_data->delete();
         return redirect()->route('admin_sidebar_ad_show')->with('success', 'Sidebar Advertisement Deleted Successfully');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+           'category_name' => 'required|unique:categories',
+           'category_order' => 'required',
+        ]);
+
+        $category = new Category();
+        $category->category_name = $request->category_name;
+        $category->show_on_menu = $request->show_on_menu;
+        $category->category_order = $request->category_order;
+        $category->save();
+
+        return redirect()->route('admin_category_show')->with('success', 'Category Inserted Successfully');
     }
 }
