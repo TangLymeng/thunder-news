@@ -13,7 +13,22 @@ class AdminCategoryController extends Controller
         $categories = Category::orderBy('category_order', 'asc')->get();
         return view('admin.category_show', compact('categories'));
     }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'category_name' => 'required',
+            'category_order' => 'required',
+        ]);
+        $categories = new Category();
 
+        $categories->category_name = request('category_name');
+        $categories->show_on_menu = request('show_on_menu');
+        $categories->category_order = request('category_order');
+
+        $categories->save();
+
+        return redirect()->route('admin_category_show')->with('success', 'Category Created Successfully');
+    }
     public function create()
     {
         return view('admin.category_create');

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminSubCategoryController;
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -43,3 +44,10 @@ Route::post('/admin/category/store', [AdminCategoryController::class, 'store'])-
 Route::get('/admin/category-edit/{id}', [AdminCategoryController::class, 'edit'])->name('admin_category_edit')->middleware('admin:admin');
 Route::post('/admin/category-update/{id}', [AdminCategoryController::class, 'update'])->name('admin_category_update');
 Route::get('/admin/category-delete/{id}', [AdminCategoryController::class, 'destroy'])->name('admin_category_delete')->middleware('admin:admin');
+
+Route::get('/admin/sub-category/show', [AdminSubCategoryController::class, 'show'])->name('admin_sub_category_show')->middleware('admin:admin');
+Route::get('/admin/sub-category/create', [AdminSubCategoryController::class, 'create'])->name('admin_sub_category_create')->middleware('admin:admin');
+Route::get('/admin/sub-category/edit/{id}', [AdminSubCategoryController::class, 'edit'])->name('admin_sub_category_edit')->middleware('admin:admin');
+Route::post('/admin/sub-category/update/{id}', [AdminSubCategoryController::class, 'update'])->name('admin_sub_category_update');
+Route::get('/admin/sub-category/delete/{id}', [AdminSubCategoryController::class, 'destroy'])->name('admin_sub_category_delete')->middleware('admin:admin');
+Route::post('/admin/sub-category/store', [AdminSubCategoryController::class, 'store'])->name('admin_sub_category_store');
