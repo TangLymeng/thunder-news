@@ -8,6 +8,7 @@ use App\Models\Admin;
 use App\Mail\Websiteemail;
 use Hash;
 use Auth;
+use Mail;
 
 class AdminLoginController extends Controller
 {
@@ -42,7 +43,7 @@ class AdminLoginController extends Controller
         $message = 'Please Click on the following link: <br>';
         $message .= '<a href="'.$reset_link.'">Reset Password</a>';
 
-        \Mail::to($request->email)->send(new Websiteemail($subject, $message));
+        Mail::to($request->email)->send(new Websiteemail($subject, $message));
 
         return redirect()->route('admin_login')->with('success', 'Reset Password Link Sent Successfully!');
     }
