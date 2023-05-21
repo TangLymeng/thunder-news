@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\HomeAdvertisement;
+use App\Models\Post;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +13,8 @@ class HomeController extends Controller
     public function index()
     {
         $home_ad_data = HomeAdvertisement::where('id', 1)->first();
-//        dd($home_ad_data);
-        return view('front.home', compact('home_ad_data'));
+        $setting_data = Setting::where('id', 1)->first();
+        $post_data = Post::orderBy('id', 'desc')->get();
+        return view('front.home', compact('home_ad_data', 'setting_data', 'post_data'));
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\AdminSubCategoryController;
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\HomeController;
@@ -60,3 +61,7 @@ Route::post('/admin/post/update/{id}', [AdminPostController::class, 'update'])->
 Route::get('/admin/post/delete/{id}', [AdminPostController::class, 'destroy'])->name('admin_post_delete')->middleware('admin:admin');
 Route::post('/admin/post/store', [AdminPostController::class, 'store'])->name('admin_post_store');
 Route::get('/admin/tag/delete/{id}/{id1}', [AdminPostController::class, 'destroy_tag'])->name('admin_post_tag_delete')->middleware('admin:admin');
+
+// Settings
+Route::get('/admin/setting', [AdminSettingController::class, 'index'])->name('admin_setting')->middleware('admin:admin');
+Route::post('/admin/setting/update/', [AdminSettingController::class, 'update'])->name('admin_setting_update');
