@@ -15,6 +15,7 @@ class AdminAdvertisementController extends Controller
     public function home_ad_show()
     {
         $home_ad_data = HomeAdvertisement::where('id', 1)->first();
+        dd('$home_ad_data');
         return view('admin.advertisement_home_view', compact('home_ad_data'));
     }
 
@@ -111,7 +112,7 @@ class AdminAdvertisementController extends Controller
     {
 
         $request->validate([
-            'sidebar_ad' => 'required|image|mimes:jpg,jpeg,png,gif'
+            'sidebar_ad' => 'required|image|mimes:jpg,jpeg,png,gif',
         ], [
             'sidebar_ad.required' => 'Please choose your ads image',
             'sidebar_ad.image' => 'Only image file are allowed',

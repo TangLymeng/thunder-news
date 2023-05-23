@@ -38,7 +38,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label>Select Category *</label>
-                                <select name="sub_category_id" class="form-control">
+                                <select name="sub_category_id" class="form-control select2">
                                     @foreach($sub_categories as $item)
                                             <option value="{{ $item->id }}" @if($item->id == $post_data->sub_category_id) selected @endif>{{ $item->sub_category_name }} ({{ $item->rCategory->category_name }})</option>
                                     @endforeach

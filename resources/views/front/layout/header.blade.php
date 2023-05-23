@@ -14,7 +14,7 @@
                     @if($global_top_ad_data->top_ad_url == '')
                         <img src="{{ asset('uploads/'.$global_top_ad_data->top_ad) }}" alt="">
                     @else
-                        <a href="{{ $global_top_ad_data->top_ad_url }}"><img src="{{ asset('uploads/'.$global_top_ad_data->top_ad) }}" alt=""></a>
+                        <a href="{{ $global_top_ad_data->top_ad_url }}"><img src="{{ asset('uploads/'.$global_top_ad_data->top_ad) }}" alt="" style="object-fit: cover"></a>
                     @endif
                 </div>
                 @endif

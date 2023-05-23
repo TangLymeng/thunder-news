@@ -26,6 +26,13 @@
                                 </select>
                             </div>
                             <div class="form-group mb-3">
+                                <label>Show on home?</label>
+                                <select name="show_on_home" class="form-control">
+                                    <option value="Show">Show</option>
+                                    <option value="Hide">Hide</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
                                 <label>SubCategory Order *</label>
                                 <input type="text" class="form-control" name="sub_category_order" value="">
                             </div>
