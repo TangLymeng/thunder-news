@@ -17,36 +17,17 @@
             <h2>Tags</h2>
         </div>
         <div class="tag">
-            <div class="tag-item">
-                <a href=""><span class="badge bg-secondary">business</span></a>
-            </div>
-            <div class="tag-item">
-                <a href=""><span class="badge bg-secondary">river</span></a>
-            </div>
-            <div class="tag-item">
-                <a href=""><span class="badge bg-secondary">politics</span></a>
-            </div>
-            <div class="tag-item">
-                <a href=""><span class="badge bg-secondary">google</span></a>
-            </div>
-            <div class="tag-item">
-                <a href=""><span class="badge bg-secondary">tree</span></a>
-            </div>
-            <div class="tag-item">
-                <a href=""><span class="badge bg-secondary">airplane</span></a>
-            </div>
-            <div class="tag-item">
-                <a href=""><span class="badge bg-secondary">tiles</span></a>
-            </div>
-            <div class="tag-item">
-                <a href=""><span class="badge bg-secondary">recent</span></a>
-            </div>
-            <div class="tag-item">
-                <a href=""><span class="badge bg-secondary">brand</span></a>
-            </div>
-            <div class="tag-item">
-                <a href=""><span class="badge bg-secondary">election</span></a>
-            </div>
+            @php
+                $all_tags = App\Models\Tag::select('tag_name')->distinct()->get();
+//                foreach($all_tags as $row){
+//                    echo $row->tag_name . ', ';
+//                }
+             @endphp
+            @foreach($all_tags as $item)
+                <div class="tag-item">
+                    <a href="{{ route('tag_posts_show',$item->tag_name) }}"><span class="badge bg-secondary">{{ $item->tag_name }}</span></a>
+                </div>
+            @endforeach
         </div>
     </div>
 
@@ -268,35 +249,35 @@
 
     </div>
 
-    <div class="widget">
-        <div class="poll-heading">
-            <h2>Online Poll</h2>
-        </div>
-        <div class="poll">
-            <div class="question">
-                Do you think that Apple products will be able to survive in the next 20 years?
-            </div>
-            <div class="answer-option">
-                <form action="" method="post">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="poll" id="poll_id_1">
-                        <label class="form-check-label" for="poll_id_1">Yes</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="poll" id="poll_id_2">
-                        <label class="form-check-label" for="poll_id_2">No</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="poll" id="poll_id_3">
-                        <label class="form-check-label" for="poll_id_3">No Comment</label>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <a href="poll-result.html" class="btn btn-primary old">Old Result</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+{{--    <div class="widget">--}}
+{{--        <div class="poll-heading">--}}
+{{--            <h2>Online Poll</h2>--}}
+{{--        </div>--}}
+{{--        <div class="poll">--}}
+{{--            <div class="question">--}}
+{{--                Do you think that Apple products will be able to survive in the next 20 years?--}}
+{{--            </div>--}}
+{{--            <div class="answer-option">--}}
+{{--                <form action="" method="post">--}}
+{{--                    <div class="form-check">--}}
+{{--                        <input class="form-check-input" type="radio" name="poll" id="poll_id_1">--}}
+{{--                        <label class="form-check-label" for="poll_id_1">Yes</label>--}}
+{{--                    </div>--}}
+{{--                    <div class="form-check">--}}
+{{--                        <input class="form-check-input" type="radio" name="poll" id="poll_id_2">--}}
+{{--                        <label class="form-check-label" for="poll_id_2">No</label>--}}
+{{--                    </div>--}}
+{{--                    <div class="form-check">--}}
+{{--                        <input class="form-check-input" type="radio" name="poll" id="poll_id_3">--}}
+{{--                        <label class="form-check-label" for="poll_id_3">No Comment</label>--}}
+{{--                    </div>--}}
+{{--                    <div class="form-group">--}}
+{{--                        <button type="submit" class="btn btn-primary">Submit</button>--}}
+{{--                        <a href="poll-result.html" class="btn btn-primary old">Old Result</a>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 </div>

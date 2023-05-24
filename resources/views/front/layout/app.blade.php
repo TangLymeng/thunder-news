@@ -35,8 +35,8 @@
         <div class="row">
             <div class="col-md-6">
                 <ul>
-                    <li class="today-text">Today: January 20, 2022</li>
-                    <li class="email-text">contact@arefindev.com</li>
+                    <li class="today-text">{{ date('d-M-Y') }}</li>
+                    <li class="email-text">cambo-news@cam.asia</li>
                 </ul>
             </div>
             <div class="col-md-6">
@@ -150,7 +150,7 @@
 </div>
 
 <div class="copyright">
-    Copyright 2022, ArefinDev. All Rights Reserved.
+    Copyright 2023, Taxman. All Rights Reserved.
 </div>
 
 <div class="scroll-top">
