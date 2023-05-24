@@ -15,7 +15,6 @@ class AdminAdvertisementController extends Controller
     public function home_ad_show()
     {
         $home_ad_data = HomeAdvertisement::where('id', 1)->first();
-        dd('$home_ad_data');
         return view('admin.advertisement_home_view', compact('home_ad_data'));
     }
 

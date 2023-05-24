@@ -27,9 +27,7 @@
                     <div class="category-page">
                         <div class="row">
 
-
-
-
+                            @if(count($post_data))
                             @foreach($post_data as $item)
                                 <div class="col-lg-6 col-md-12">
                                     <div class="category-page-post-item">
@@ -66,6 +64,15 @@
                                 </div>
 
                             @endforeach
+
+                            @else
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger">
+                                        No Post Found
+                                    </div>
+                                </div>
+
+                            @endif
 
 
                             <div class="col-md-12">

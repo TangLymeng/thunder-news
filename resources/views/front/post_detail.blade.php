@@ -62,18 +62,18 @@
                         <h2>Share</h2>
                         <div class="addthis_inline_share_toolbox"></div>
                     </div>
-                    <div class="comment-fb">
-                        <h2>Comment</h2>
-                        <div id="disqus_thread"></div>
-                        <script>
-                            (function() { // DON'T EDIT BELOW THIS LINE
-                                var d = document, s = d.createElement('script');
-                                s.src = 'https://arefindev-com.disqus.com/embed.js';
-                                s.setAttribute('data-timestamp', +new Date());
-                                (d.head || d.body).appendChild(s);
-                            })();
-                        </script>
-                    </div>
+{{--                    <div class="comment-fb">--}}
+{{--                        <h2>Comment</h2>--}}
+{{--                        <div id="disqus_thread"></div>--}}
+{{--                        <script>--}}
+{{--                            (function() { // DON'T EDIT BELOW THIS LINE--}}
+{{--                                var d = document, s = d.createElement('script');--}}
+{{--                                s.src = 'https://arefindev-com.disqus.com/embed.js';--}}
+{{--                                s.setAttribute('data-timestamp', +new Date());--}}
+{{--                                (d.head || d.body).appendChild(s);--}}
+{{--                            })();--}}
+{{--                        </script>--}}
+{{--                    </div>--}}
                     <div class="related-news">
                         <div class="related-news-heading">
                             <h2>Related News</h2>

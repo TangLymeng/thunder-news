@@ -99,8 +99,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="right">
-                            34 Antiger Lane,<br>
-                            PK Lane, USA, 12937
+                            In your heart
                         </div>
                     </div>
                     <div class="list-item">
@@ -108,7 +107,7 @@
                             <i class="far fa-envelope"></i>
                         </div>
                         <div class="right">
-                            contact@arefindev.com
+                            cambo-news@cam.asia
                         </div>
                     </div>
                     <div class="list-item">
@@ -116,7 +115,7 @@
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div class="right">
-                            122-222-1212
+                            +855 123456789
                         </div>
                     </div>
                     <ul class="social">

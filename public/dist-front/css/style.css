@@ -144,14 +144,14 @@ a:hover {
 
 /* Website Menu */
 .website-menu {
-	background: #5374d3;
+	background: #0066CC;
 }
 .website-menu .navbar {
 	padding-top: 0!important;
 	padding-bottom: 0!important;
 }
 .website-menu .bg-primary {
-	background: #5374d3!important;
+	background: #0066CC!important;
 }
 .website-menu .navbar-dark .navbar-nav .nav-item {
 	margin-right: 15px;
@@ -889,7 +889,7 @@ a:hover {
 	background: #fff;
 	position: relative;
 	height: 45px;
-	border: 1px solid #5374d3;
+	border: 1px solid #0066CC;
 	margin-bottom: 15px;
 }
 @media (min-width: 768px) {
@@ -898,7 +898,7 @@ a:hover {
 	}
 }
 .acme-news-ticker-label {
-	background: #5374d3;
+	background: #0066CC;
 	padding: 10px;
 	padding-top: 12px;
 	width: 110px;
@@ -964,7 +964,7 @@ a:hover {
 }
 .footer input[type="submit"] {
 	width: 100%;
-	background: #5374d3;
+	background: #0066CC;
 	border: 0;
 	margin-top: 10px;
 }
@@ -1000,7 +1000,7 @@ a:hover {
 }
 .footer ul.social li a {
 	color: #fff;
-	background: #5374d3;
+	background: #0066CC;
 	width: 30px;
 	height: 30px;
 	line-height: 30px;
@@ -1152,7 +1152,7 @@ a:hover {
 	color: #333;
 }
 .category-page-post-item h3 a:hover {
-	color: #5374d3;
+	color: #0066CC;
 }
 .category-page-post-item .photo {
 	margin-bottom: 15px;
@@ -1252,7 +1252,7 @@ a:hover {
 	right: 35px;
 	width: 30px;
     height: 30px;
-    background: #5374d3;
+    background: #0066CC;
     line-height: 30px;
     text-align: center;
     color: #fff;
@@ -1261,7 +1261,7 @@ a:hover {
 	top: -45px;
 	width: 30px;
     height: 30px;
-    background: #5374d3;
+    background: #0066CC;
     line-height: 30px;
     text-align: center;
     color: #fff;
@@ -1281,7 +1281,7 @@ a:hover {
 	color: #333;
 }
 .related-news .item h3 a:hover {
-	color: #5374d3;
+	color: #0066CC;
 }
 .related-news .item .photo {
 	margin-bottom: 15px;
@@ -1330,7 +1330,7 @@ a:hover {
 }
 .related-news .item .date-user .user a:hover,
 .related-news .item .date-user .date a:hover {
-	color: #5374d3;
+	color: #0066CC;
 }
 .related-news .item .date-user .user:before {
 	content: "\f007";
