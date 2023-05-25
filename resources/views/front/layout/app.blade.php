@@ -150,7 +150,7 @@
 </div>
 
 <div class="copyright">
-    Copyright 2023, Taxman. All Rights Reserved.
+    Copyright 2023, chessman. All Rights Reserved.
 </div>
 
 <div class="scroll-top">

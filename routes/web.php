@@ -18,6 +18,9 @@ use App\Http\Controllers\Admin\AdminAdvertisementController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/subcategory-by-category/{id}', [HomeController::class, 'get_subcategory_by_category'])->name('subcategory-by-category');
+Route::post('/search/result', [HomeController::class, 'search'])->name('search_result.blade.php');
+
 Route::get('/news-detail/{id}', [PostController::class, 'detail'])->name('news_detail');
 Route::get('/category/{id}', [SubCategoryController::class, 'index'])->name('category');
 Route::get('/tag/{tag_name}', [TagController::class, 'show'])->name('tag_posts_show');

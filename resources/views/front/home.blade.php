@@ -154,35 +154,38 @@
     <div class="search-section">
         <div class="container">
             <div class="inner">
+                <form action="{{ route('search_result.blade.php') }}" method="post">
+                    @csrf
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <input type="text" name="" class="form-control" placeholder="Title or Description">
+                            <input type="text" name="text_item" class="form-control" placeholder="Title or Description">
                         </div>
                     </div>
+
                     <div class="col-md-3">
                         <div class="form-group">
-                            <select name="" class="form-select">
+                            <select name="category" id="category" class="form-select">
                                 <option value="">Select Category</option>
-                                <option value="">Sports</option>
-                                <option value="">National</option>
-                                <option value="">Lifestyle</option>
+                                @foreach($category_data as $item)
+                                    <option value="{{ $item->id }}">{{ $item->sub_category_name }}
+                                        {{ $item->category_name }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <select name="" class="form-select">
+                            <select name="sub_category" id="sub_category" class="form-select">
                                 <option value="">Select SubCategory</option>
-                                <option value="">Football</option>
-                                <option value="">Cricket</option>
-                                <option value="">Baseball</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <button type="submit" class="btn btn-primary">Search</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -445,4 +448,26 @@
             </div>
         </div>
     @endif
+
+    <script>
+        (function($){
+            $(document).ready(function(){
+                $("#category").on("change", function (){
+                    var categoryId = $("#category").val();
+                    if(categoryId){
+                        $.ajax({
+                            type: "get",
+                            url: "{{ url('/subcategory-by-category/') }}" + "/" + categoryId,
+                            success: function (response){
+                                $("#sub_category").html(response.sub_category_data);
+                            },
+                            error: function (err){
+                            }
+                        })
+                    }
+                })
+            })
+        })(jQuery);
+    </script>
+
 @endsection

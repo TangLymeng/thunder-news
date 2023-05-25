@@ -31,24 +31,24 @@
         </div>
     </div>
 
-    <div class="widget">
-        <div class="archive-heading">
-            <h2>Archive</h2>
-        </div>
-        <div class="archive">
-            <select name="" class="form-select">
-                <option value="">Select Month</option>
-                <option value="">February 2022</option>
-                <option value="">January 2022</option>
-                <option value="">December 2021</option>
-                <option value="">November 2021</option>
-                <option value="">October 2021</option>
-                <option value="">September 2021</option>
-                <option value="">August 2021</option>
-                <option value="">July 2021</option>
-            </select>
-        </div>
-    </div>
+{{--    <div class="widget">--}}
+{{--        <div class="archive-heading">--}}
+{{--            <h2>Archive</h2>--}}
+{{--        </div>--}}
+{{--        <div class="archive">--}}
+{{--            <select name="" class="form-select">--}}
+{{--                <option value="">Select Month</option>--}}
+{{--                <option value="">February 2022</option>--}}
+{{--                <option value="">January 2022</option>--}}
+{{--                <option value="">December 2021</option>--}}
+{{--                <option value="">November 2021</option>--}}
+{{--                <option value="">October 2021</option>--}}
+{{--                <option value="">September 2021</option>--}}
+{{--                <option value="">August 2021</option>--}}
+{{--                <option value="">July 2021</option>--}}
+{{--            </select>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     <div class="widget">
         <div class="live-channel">
